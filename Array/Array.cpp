@@ -54,6 +54,36 @@ class Array {
         return count == 0;
     }
 
+    int max() {
+        int max = items[0];
+        for (size_t i = 0; i < count; i++)
+            if(max < items[i]) max = items[i];
+        return max;
+    }
+
+    int at(int index) {
+        return items[index];
+    }
+    void reverse() {
+        for(int i = 0, j = count-1; i < j; i++, j--) {
+            int temp = items[i];
+            items[i] = items[j];
+            items[j] = temp;
+        } 
+    }
+
+    void intersect(Array temp) {
+    
+        for (size_t i = 0; i < count; i++)
+        {
+            if(items[i] == temp.at(i)) cout << items[i] << " " << endl;
+        }
+        
+    }
+
+    void insertAt(int index) {
+        
+    }
 };
 
 int main(int argc, char const *argv[]) {
@@ -62,13 +92,15 @@ int main(int argc, char const *argv[]) {
 
     list.insert(10);
     list.insert(20);
-    list.insert(30);
+    list.insert(80);
     list.insert(40);
 
-    cout << list.indexOf(40) << endl;
 
-    cout << list.length() << endl;
-    list.print();
+    Array another(3);
+    another.insert(10);
+    another.insert(30);
+    
+    list.intersect(another);
 
     return 0;
 }
