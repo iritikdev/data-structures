@@ -77,7 +77,42 @@ class DoublyLinkedList {
         head->next = NULL;
         second->prev = NULL;
         head = second;
+        size--;
     }
+    
+    void removeLast() {
+        if(head == NULL) {
+            cout << "list is empty" << endl;
+        } else {
+            Node *secondLast = tail->prev;
+            secondLast->next = NULL;
+            tail->prev = NULL;
+            tail = secondLast;
+        }
+        size--;
+
+    }
+
+    void remove(int position) {
+        if(isEmpty()) cout << "List is empty" << endl;
+        else {
+            int i = 0;
+            Node *current = head;
+            while (current != NULL) {
+                if(i == position) break;
+                current = current->next;
+                i++;
+            }
+            Node *previous = current->prev;
+            previous->next = current->next;
+            current->next->prev = previous;
+        }
+    }
+
+    bool isEmpty() {
+        return size == 0;
+    }
+
     void reverse() {
         Node *current = tail;
 
@@ -107,8 +142,9 @@ int main(int argc, char const *argv[]) {
     list.addLast(10);
     list.addLast(15);
     list.addLast(20);
+    list.addLast(25);
 
-    list.removeFirst();
+    list.remove(1);
     list.print();
     list.reverse();
     
