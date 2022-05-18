@@ -7,7 +7,6 @@ int main(int argc, char const *argv[])
     items.remove(10);
     items.remove(20);
     items.remove(30);
-    items.remove(10);
     for(int &item : items) cout << item << endl;
 
     return 0;
