@@ -14,22 +14,19 @@ public:
     }
 };
 
-class SinglyLinkedList
-{
-public:
-    Node *head;
-    Node *tail;
-    int size;
+class SinglyLinkedList {
+    public:
+        Node *head;
+        Node *tail;
+        int size;
 
-    SinglyLinkedList()
-    {
+    SinglyLinkedList() {
         head = NULL;
         tail = NULL;
         size = 0;
     }
 
-    void addFirst(int item)
-    {
+    void addFirst(int item) {
         // create a new node
         Node *node = new Node(item);
 
