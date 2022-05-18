@@ -25,7 +25,48 @@ class DoublyLinkedList {
         tail = NULL;
     }
 
-    
+    void addFirst(int item) {
+        Node *node = new Node(item);
+
+        if(head == NULL) head = tail = node;
+        else {
+            node->next = head;
+            head->prev = node;
+            head = node;
+        }
+        size++;
+    }
+
+    void addLast(int item) {
+        Node *node = new Node(item);
+
+        if(head == NULL) head = tail = node;
+        else {
+            tail ->next = node;
+            node->prev = tail;
+            tail = node;
+        }
+        size++;
+    }
+
+    void addMiddle(int item, int position) {
+        Node *node = new Node(item);
+
+        if(head == NULL) head = tail = node;
+        else {
+            Node *current = head;
+            for (size_t i = 0; i < position; i++) {
+                if(i == position-1) break;
+                current = current->next;
+            }
+            Node *second = current->next;
+            current->next = node;
+            node->next = second;
+            second->prev = node;
+            node -> prev = current;
+        }
+        size++;
+    }
     
     void reverse() {
         Node *current = tail;
