@@ -68,6 +68,16 @@ class DoublyLinkedList {
         size++;
     }
     
+    void removeFirst() {
+        if(head == NULL) {
+            cout << "list is empty." << endl;
+            exit(0);
+        }
+        Node *second = head->next;
+        head->next = NULL;
+        second->prev = NULL;
+        head = second;
+    }
     void reverse() {
         Node *current = tail;
 
@@ -97,10 +107,10 @@ int main(int argc, char const *argv[]) {
     list.addLast(10);
     list.addLast(15);
     list.addLast(20);
-    list.addMiddle(50,1);
 
-    list.reverse();
+    list.removeFirst();
     list.print();
+    list.reverse();
     
     return 0;
 }
