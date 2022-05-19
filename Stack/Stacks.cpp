@@ -52,10 +52,6 @@ int main(int argc, char const *argv[]) {
     s.push(20);
     s.push(30);
 
-    cout << s.pop() << endl;
-    
-    s.print();
-
     cout << "Size : " << s.length() << endl;
     return 0;
 }
